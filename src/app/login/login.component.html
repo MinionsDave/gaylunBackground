@@ -1,3 +1,11 @@
-<p>
-  login works!
-</p>
+<h1>
+  User Login
+</h1>
+<form>
+  <input type="text" [(ngModel)]="user.username" name="username">
+   TODO: remove this: {{user.username}}
+  <input type="password" [(ngModel)]="user.password" name="password">
+  <button type="submit">
+    登陆
+  </button>
+</form>
