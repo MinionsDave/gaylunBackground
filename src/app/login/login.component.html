@@ -2,10 +2,45 @@
   User Login
 </h1>
 <form>
-  <input type="text" [(ngModel)]="user.username" name="username">
-   TODO: remove this: {{user.username}}
-  <input type="password" [(ngModel)]="user.password" name="password">
-  <button type="submit">
-    登陆
-  </button>
+  <div
+    class="form-group"
+    [ngClass]="{'has-danger': username.invalid && username.touched}">
+    <label for="username">
+      username
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      [(ngModel)]="user.username"
+      name="username"
+      #username="ngModel"
+      required>
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="username.invalid && username.touched">
+    username is required
+  </div>
+  <div
+    class="form-group"
+    [ngClass]="{'has-danger': password.invalid && password.touched}">
+    <label for="password">
+      password
+    </label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      [(ngModel)]="user.password"
+      name="password"
+      #password="ngModel"
+      required>
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="password.invalid && password.touched">
+    password is required
+  </div>
+  <button class="btn btn-primary btn-block" type="submit">login</button>
 </form>
