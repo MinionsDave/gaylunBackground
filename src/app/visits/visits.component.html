@@ -80,5 +80,16 @@
         </tr>
     </tbody>
 </table>
-<pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [(ngModel)]="pagination.pageNo" class="pagination-sm"
-            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+<pagination
+    [boundaryLinks]="true"
+    [totalItems]="pagination.totalItems"
+    [itemsPerPage]="pagination.pageSize"
+    [(ngModel)]="pagination.pageNo"
+    (pageChanged)="list($event)"
+    [align]="true"
+    [maxSize]="5"
+    class="pagination-sm pull-right"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"></pagination>

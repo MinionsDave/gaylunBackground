@@ -18,12 +18,22 @@ export class VisitsComponent implements OnInit {
         pageSize: 30,
         totalItems: Number
     }
+
     visits: Visit[]
+
     constructor(private visitService: VisitService) {}
-    ngOnInit() {
-        this.visitService.index(this.pagination.pageNo, this.pagination.pageSize)
+    list(event: any) {
+        this.visitService.index(event.page, event.itemsPerPage)
                             .subscribe(res => {
                                 this.visits = res.visits
+                                this.pagination.totalItems = res.totalCount
                             })
+    }
+
+    ngOnInit() {
+        this.list({
+            page: 1,
+            itemsPerPage: 30
+        })
     }
 }
