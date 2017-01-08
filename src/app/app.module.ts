@@ -3,21 +3,26 @@ import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
 
+import { PaginationModule } from 'ng2-bootstrap'
+
 import { AppRoutingModule } from './app-routeing.module'
 
 import { AppComponent } from './app.component'
 import { LoginComponent } from './login/login.component'
+import { VisitsComponent } from './visits/visits.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    VisitsComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    PaginationModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
