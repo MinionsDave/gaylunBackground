@@ -10,12 +10,14 @@ import { AppRoutingModule } from './app-routeing.module'
 import { AppComponent } from './app.component'
 import { LoginComponent } from './login/login.component'
 import { VisitsComponent } from './visits/visits.component'
+import { HeadbarComponent } from './headbar/headbar.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    VisitsComponent
+    VisitsComponent,
+    HeadbarComponent
   ],
   imports: [
     AppRoutingModule,
