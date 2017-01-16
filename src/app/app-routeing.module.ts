@@ -11,6 +11,10 @@ const appRoutes: Routes = [
     }, {
         path: 'visits',
         component: VisitsComponent
+    }, {
+        path: '',
+        redirectTo: '/login',
+        pathMatch: 'full'
     }
 ]
 

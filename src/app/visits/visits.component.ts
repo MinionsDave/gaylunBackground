@@ -5,7 +5,6 @@ import { VisitService } from '../visit.service'
 import { Visit } from '../visit'
 
 @Component({
-    selector: 'app-visits',
     templateUrl: './visits.component.html',
     providers: [
         VisitService
