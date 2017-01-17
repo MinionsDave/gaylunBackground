@@ -12,6 +12,9 @@ import { LoginComponent } from './login/login.component'
 import { VisitsComponent } from './visits/visits.component'
 import { HeadbarComponent } from './headbar/headbar.component'
 
+import { UserService } from './user.service'
+import { AuthGuard } from './auth-guard.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,10 @@ import { HeadbarComponent } from './headbar/headbar.component'
     HttpModule,
     PaginationModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    UserService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

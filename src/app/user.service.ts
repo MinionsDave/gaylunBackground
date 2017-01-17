@@ -7,6 +7,10 @@ import { User } from './user'
 
 @Injectable()
 export class UserService {
+  isLoggedIn = false
+
+  redirectUrl: string
+
   private loginUrl = '/api/session'
 
   constructor(private http: Http) { }
@@ -15,5 +19,9 @@ export class UserService {
     let headers = new Headers()
     headers.append('Content-Type', 'application/json')
     return this.http.post(this.loginUrl, JSON.stringify(user), {headers})
+  }
+
+  logout() {
+    this.isLoggedIn = false
   }
 }

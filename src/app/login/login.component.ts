@@ -8,10 +8,7 @@ import { User } from '../user'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  providers: [
-    UserService
-  ]
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
 
@@ -24,7 +21,11 @@ export class LoginComponent {
 
   login() {
     this.userService.login(this.user)
-        .subscribe(() => this.router.navigate(['visits']))
+        .subscribe(() => {
+          this.userService.isLoggedIn = true
+          let redirect = this.userService.redirectUrl || '/visits'
+          this.router.navigate([redirect])
+        })
   }
 
 }
