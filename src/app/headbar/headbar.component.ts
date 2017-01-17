@@ -9,26 +9,15 @@ import { Observable } from 'rxjs/Observable'
 
 export class HeadbarComponent implements OnInit {
     path: String
-    url: Observable<String>
 
     constructor(
         private route: ActivatedRoute,
         private router: Router
-    ) {
-        this.url = route.url.map(segments => segments.join())
-    }
+    ) {}
 
     ngOnInit() {
-        // this.router.events
-        //             .filter(event => event instanceof NavigationEnd)
-        //             .subscribe(event => {
-        //                 let currentRoute = this.route.root
-        //                 while (currentRoute.children[0] !== undefined) {
-        //                     currentRoute = currentRoute.children[0]
-        //                 }
-        //                 console.log(currentRoute.snapshot.data)
-        //             })
-        // this.route.url.map(segments => segments.join())
-        //             .subscribe(console.log)
+        this.router.events
+                    .filter(e => e instanceof NavigationEnd)
+                    .subscribe((e: NavigationEnd) => this.path = e.urlAfterRedirects)
     }
 }
