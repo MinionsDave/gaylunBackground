@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { Router, ActivatedRoute, UrlSegment, NavigationEnd } from '@angular/router'
+import { Router, ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router'
 import { Observable } from 'rxjs/Observable'
 
 @Component({
@@ -18,6 +18,11 @@ export class HeadbarComponent implements OnInit {
     ngOnInit() {
         this.router.events
                     .filter(e => e instanceof NavigationEnd)
-                    .subscribe((e: NavigationEnd) => this.path = e.urlAfterRedirects)
+                    .map(() => this.route.snapshot)
+                    .map(route => {
+                        while (route.firstChild) route = route.firstChild
+                        return route
+                    })
+                    .subscribe((route: ActivatedRouteSnapshot) => this.path = route.url[0].path)
     }
 }
