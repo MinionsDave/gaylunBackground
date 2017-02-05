@@ -5,13 +5,15 @@ import { Observable } from 'rxjs/Observable'
 
 import { User } from './user'
 
+import { environment } from '../environments/environment'
+
 @Injectable()
 export class UserService {
   isLoggedIn = false
 
   redirectUrl: string
 
-  private loginUrl = '/api/session'
+  private loginUrl = environment.serverUrl + '/session'
 
   constructor(private http: Http) { }
 
