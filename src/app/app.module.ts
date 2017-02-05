@@ -5,7 +5,9 @@ import { HttpModule } from '@angular/http'
 
 import { PaginationModule } from 'ng2-bootstrap'
 
-import { AppRoutingModule } from './app-routeing.module'
+import { Ng2Echarts } from 'ng2-echarts'
+
+import { AppRoutingModule } from './app-routeing'
 
 import { AppComponent } from './app.component'
 import { LoginComponent } from './login/login.component'
@@ -14,13 +16,16 @@ import { HeadbarComponent } from './headbar/headbar.component'
 
 import { UserService } from './user.service'
 import { AuthGuard } from './auth-guard.service'
+import { DiagramComponent } from './diagram/diagram.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     VisitsComponent,
-    HeadbarComponent
+    HeadbarComponent,
+    DiagramComponent,
+    Ng2Echarts
   ],
   imports: [
     AppRoutingModule,

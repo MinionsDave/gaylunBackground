@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router'
 
 import { LoginComponent } from './login/login.component'
 import { VisitsComponent } from './visits/visits.component'
+import { DiagramComponent } from './diagram/diagram.component'
 
 import { AuthGuard } from './auth-guard.service'
 
@@ -14,6 +15,9 @@ const appRoutes: Routes = [
         path: 'visits',
         component: VisitsComponent,
         canActivate: [AuthGuard]
+    }, {
+        path: 'diagram',
+        component: DiagramComponent
     }, {
         path: '',
         redirectTo: '/login',
