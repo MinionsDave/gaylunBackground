@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core'
+import { pieChartOption } from './diagram.constant'
+
+import { ChartDataService } from '../chart-data.service'
 
 @Component({
   selector: 'app-diagram',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core'
 })
 export class DiagramComponent implements OnInit {
 
-  constructor() { }
+  pieChartOption
+
+  constructor(
+    private chartDataService: ChartDataService
+  ) { }
 
   ngOnInit() {
+    this.chartDataService.getPieChartData()
+                          .then(res => {
+                            this.pieChartOption = Object.assign(pieChartOption)
+                            this.pieChartOption.legend.data = res.map(o => o.name)
+                            this.pieChartOption.series[0].data = res.map(o => ({
+                              name: o._id,
+                              value: o.totalCount
+                            }))
+                          })
   }
 
 }

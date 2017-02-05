@@ -9,13 +9,15 @@ import { Ng2Echarts } from 'ng2-echarts'
 
 import { AppRoutingModule } from './app-routeing'
 
+
+import { UserService } from './user.service'
+import { AuthGuard } from './auth-guard.service'
+import { ChartDataService } from './chart-data.service'
+
 import { AppComponent } from './app.component'
 import { LoginComponent } from './login/login.component'
 import { VisitsComponent } from './visits/visits.component'
 import { HeadbarComponent } from './headbar/headbar.component'
-
-import { UserService } from './user.service'
-import { AuthGuard } from './auth-guard.service'
 import { DiagramComponent } from './diagram/diagram.component'
 
 @NgModule({
@@ -36,7 +38,8 @@ import { DiagramComponent } from './diagram/diagram.component'
   ],
   providers: [
     UserService,
-    AuthGuard
+    AuthGuard,
+    ChartDataService
   ],
   bootstrap: [AppComponent]
 })
