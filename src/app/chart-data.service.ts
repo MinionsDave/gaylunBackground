@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Http } from '@angular/http'
+import { Http, Response } from '@angular/http'
 
 import { Observable } from 'rxjs/Observable'
 
@@ -23,6 +23,11 @@ export class ChartDataService {
                 })
                 .catch(reject)
     })
+  }
+
+  getPeriodCount(period: string): Observable<Response> {
+    return this.http.get(`${environment.serverUrl}/visits/count/${period}`)
+                      .map(res => res.json())
   }
 
 }

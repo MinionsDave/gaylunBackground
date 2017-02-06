@@ -1,0 +1,8 @@
+<h3 class="text-center">
+  来访数量统计
+</h3>
+<ul>
+  <li *ngFor="let item of listData">
+    {{ item.name }}: {{ (item.value | async)?.count }}
+  </li>
+</ul>
