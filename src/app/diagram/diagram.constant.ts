@@ -36,3 +36,31 @@ export const pieChartOption = {
         }
     ]
 }
+
+export const lineChartOption = {
+    title: {
+        text: '来访趋势图',
+        x: 'center'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+    },
+    yAxis: {
+        type: 'value',
+        axisLabel: {
+            formatter: '{value} °C'
+        }
+    },
+    series: [
+        {
+            name: '来访人数',
+            type: 'line',
+            data: [1, -2, 2, 5, 3, 2, 0]
+        }
+    ]
+}

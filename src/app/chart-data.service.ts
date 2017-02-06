@@ -5,6 +5,11 @@ import { Observable } from 'rxjs/Observable'
 
 import { environment } from '../environments/environment'
 
+class DayCountModel {
+  timestamp: number
+  count: number
+}
+
 @Injectable()
 export class ChartDataService {
 
@@ -27,7 +32,12 @@ export class ChartDataService {
 
   getPeriodCount(period: string): Observable<Response> {
     return this.http.get(`${environment.serverUrl}/visits/count/${period}`)
-                      .map(res => res.json())
+                    .map(res => res.json())
+  }
+
+  getCountPerDay(): Observable<Array<DayCountModel>> {
+    return this.http.get(`${environment.serverUrl}/visits/groupCounting`)
+                    .map(res => res.json())
   }
 
 }
