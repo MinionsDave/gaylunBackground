@@ -11,20 +11,26 @@ import { ChartDataService } from '../chart-data.service'
 export class DiagramComponent implements OnInit {
 
   pieChartOption
+  categoryPieChartOption
 
   constructor(
     private chartDataService: ChartDataService
   ) { }
 
   ngOnInit() {
-    this.chartDataService.getPieChartData()
+    this.chartDataService.getPieChartData('platform')
                           .then(res => {
-                            this.pieChartOption = Object.assign(pieChartOption)
+                            this.pieChartOption = JSON.parse(JSON.stringify(pieChartOption))
                             this.pieChartOption.legend.data = res.map(o => o.name)
-                            this.pieChartOption.series[0].data = res.map(o => ({
-                              name: o._id,
-                              value: o.totalCount
-                            }))
+                            this.pieChartOption.series[0].data = res
+                          })
+
+    this.chartDataService.getPieChartData('category')
+                          .then(res => {
+                            this.categoryPieChartOption = JSON.parse(JSON.stringify(pieChartOption))
+                            this.categoryPieChartOption.title.text = '所看类目比例'
+                            this.categoryPieChartOption.legend.data = res.map(o => o.name)
+                            this.categoryPieChartOption.series[0].data = res
                           })
   }
 

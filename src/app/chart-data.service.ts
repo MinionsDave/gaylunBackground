@@ -10,14 +10,18 @@ export class ChartDataService {
 
   constructor(private http: Http) { }
 
-  getPieChartData(): Promise<any> {
+  getPieChartData(field: string): Promise<any> {
     return new Promise ((resolve, reject) => {
-      this.http.get(environment.serverUrl + '/visits/groupInfo/platform')
+      this.http.get(`${environment.serverUrl}/visits/groupInfo/${field}`)
                 .toPromise()
                 .then(res => {
-                  res = res.json()
-                  resolve(res)
+                  let body: Array<any> = res.json()
+                  resolve(body.map(o => ({
+                    name: o._id,
+                    value: o.totalCount
+                  })))
                 })
+                .catch(reject)
     })
   }
 
