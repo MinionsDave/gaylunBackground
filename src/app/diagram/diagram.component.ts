@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { pieChartOption, lineChartOption } from './diagram.constant'
+import { pieChartOption, lineChartOption, scatterDiagramOption } from './diagram.constant'
 
 import { ChartDataService } from '../chart-data.service'
 
@@ -13,6 +13,7 @@ export class DiagramComponent implements OnInit {
   pieChartOption
   categoryPieChartOption
   lineChartOption
+  scatterDiagramOption = scatterDiagramOption
 
   constructor(
     private chartDataService: ChartDataService
