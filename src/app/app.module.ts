@@ -18,7 +18,7 @@ import { AppComponent } from './app.component'
 import { LoginComponent } from './login/login.component'
 import { VisitsComponent } from './visits/visits.component'
 import { HeadbarComponent } from './headbar/headbar.component'
-import { DiagramComponent } from './diagram/diagram.component';
+import { DiagramComponent } from './diagram/diagram.component'
 import { CountComponent } from './count/count.component'
 
 @NgModule({
