@@ -1,13 +1,13 @@
 <div *ngIf="path !== 'login'">
     <a
         class="btn"
-        routerLink="/visits"
+        [routerLink]="['visits']"
         [ngClass]="{'btn-secondary': path !== 'visits', 'btn-primary': path === 'visits'}">
         详细数据
     </a>
     <a
         class="btn"
-        routerLink="/diagram"
+        [routerLink]="['diagram']"
         [ngClass]="{'btn-secondary': path !== 'diagram', 'btn-primary': path === 'diagram'}">
         图表
     </a>
